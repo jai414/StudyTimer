@@ -14,21 +14,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)  // Ensure this points to your XML layout
 
-        chronometer   = findViewById(R.id.chronometer)
-        val btnStart  = findViewById<Button>(R.id.button_start)
-        val btnStop   = findViewById<Button>(R.id.button_stop)
-        val btnReset  = findViewById<Button>(R.id.button_reset)
+        chronometer = findViewById(R.id.chronometer)
+        val btnStart = findViewById<Button>(R.id.button_start)
+        val btnStop = findViewById<Button>(R.id.button_stop)
+        val btnReset = findViewById<Button>(R.id.button_reset)
 
         btnStart.setOnClickListener { startStopwatch() }
-        btnStop .setOnClickListener { stopStopwatch()  }
+        btnStop.setOnClickListener { stopStopwatch() }
         btnReset.setOnClickListener { resetStopwatch() }
     }
 
     private fun startStopwatch() {
         if (!running) {
-            // resumes from where we left off
+            // resume from where we left off
             chronometer.base = SystemClock.elapsedRealtime() - pauseOffset
             chronometer.start()
             running = true
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     private fun stopStopwatch() {
         if (running) {
             chronometer.stop()
-            // save the elapsed time so far
+            // save the elapsed time
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.base
             running = false
         }

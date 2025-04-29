@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StudyTimer</string>
+    <string name="time_format">%02d:%02d:%02d:%03d</string>
+</resources>
